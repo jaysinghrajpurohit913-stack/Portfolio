@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark — engineering workspace (default) */
+  --bg: 14 16 19;
+  --surface: 21 24 28;
+  --surface-raised: 26 30 35;
+  --border: 42 46 51;
+  --ink: 232 234 237;
+  --muted: 139 146 160;
+  --accent: 108 189 189;
+  --accent-ink: 12 16 17;
+  --caution: 214 168 90;
+  --stop: 209 122 122;
+}
+
+[data-theme="light"] {
+  /* Light — premium editorial */
+  --bg: 250 250 248;
+  --surface: 244 243 238;
+  --surface-raised: 255 255 255;
+  --border: 221 217 208;
+  --ink: 27 30 34;
+  --muted: 96 100 108;
+  --accent: 39 110 110;
+  --accent-ink: 250 250 248;
+  --caution: 158 104 12;
+  --stop: 158 51 51;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-feature-settings: "ss01" 1, "cv01" 1;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.prose-note {
+  max-width: 68ch;
+}
+
+.grain-panel {
+  background-image:
+    linear-gradient(rgb(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
